@@ -2,9 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { connetToDB } from './config/dbConfig.js';
 import authRouter from './routes/authRoutes.js';
+import userAgent from 'express-useragent';
 const app = express();
 app.use(express.json());
-
+app.use(userAgent.express());
 // Routes
 app.use('/api/auth', authRouter);
 

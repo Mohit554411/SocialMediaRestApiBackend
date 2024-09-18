@@ -19,7 +19,16 @@ const userSchema = new mongoose.Schema({
   gender: {
     type: String,
   },
-  tokens: [String],
+  deviceInfo: [{
+    deviceType: String,
+    brand: String,
+    model: String,
+    platform: String,    
+    osVersion: String,   
+    browser: String,    
+    browserVersion: String, 
+    ipAddress: String,
+  }],
   avatar: {
     type: String,
   },
@@ -44,5 +53,4 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 
 // Create the user model
 const User = mongoose.model('User', userSchema);
-
 export default User;
